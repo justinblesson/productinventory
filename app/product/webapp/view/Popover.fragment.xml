@@ -1,0 +1,17 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:fiori="sap.ui.webc.fiori">
+		<ResponsivePopover
+		id="myPopover"
+		title="{userdetails>/0/username}"
+		class="sapUiContentPadding"
+		placement="Bottom" >
+
+		<beginButton>		
+
+			<Button text="Logout" icon="sap-icon://log" press="onNavBack" />
+
+		</beginButton>
+		<content>
+		    <Text id="ActiveText" text="{userdetails>/0/email}"/>
+		</content>
+	</ResponsivePopover>
+</core:FragmentDefinition>

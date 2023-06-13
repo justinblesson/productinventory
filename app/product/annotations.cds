@@ -1,0 +1,1 @@
+using productinventory as service from '../../srv/cap-srv';

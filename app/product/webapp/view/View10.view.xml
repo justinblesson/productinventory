@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:fiori="sap.ui.webc.fiori"
+   xmlns:l="sap.ui.layout" xmlns:semantic="sap.f.semantic" controllerName="product.product.controller.View10" displayBlock="true"> 
+      <App backgroundImage="cool-background1.png" backgroundOpacity="1">
+   <ScrollContainer
+		height="100%"
+		width="100%"
+		vertical="true"
+		focusable="true">
+             	<l:VerticalLayout id="containerLayout" width="100%">       
+                  <l:BlockLayout id="BlockLayout" background="Default">
+
+<!-- Image Block -->
+                    
+                  <l:BlockLayoutRow>
+                        <l:BlockLayoutCell class="sapUiNoContentPadding" width="80%">
+                           <!-- <Image src="Wipro.png" width="200px" height="150px" class="sapUiLargeMarginBeginTopBottom" />
+                           <Title id="productTiled" text="Inventory Management Solution" level="H1" titleStyle="H1" class="sapUiLargeMarginTopBottom" /> -->
+						   <Image src="Wipro.png" width="120px" height="90px" class="sapUiLargeMarginBeginTopBottom" />
+                           <Title id="productTiled" text="Inventory Management Solution" level="H1" titleStyle="H3" class="sapUiMediumMarginBottom" />
+                        </l:BlockLayoutCell>
+						<l:BlockLayoutCell class="sapUiNoContentPadding" width="20%">
+                          	<HBox justifyContent="End" backgroundDesign="Transparent" >
+			        <Avatar
+							initials="{userdetails>/0/initial}"
+							displaySize="L"
+							class="sapUiTinyMargin"
+							backgroundColor="Placeholder"
+							press=".handleButtonPress"/>	 
+							  </HBox>
+                            
+                            </l:BlockLayoutCell>
+                     </l:BlockLayoutRow>
+<!-- Developer Block -->
+                    <l:BlockLayoutRow>
+       
+            <l:BlockLayoutCell>
+            <HBox justifyContent="End" backgroundDesign="Transparent" height="133%">	
+              <Button id="home" text="Home" press="onHome" type="Emphasized" class="sapUiTinyMargin" icon="sap-icon://home" />
+			</HBox>			 
+                            </l:BlockLayoutCell>
+                            </l:BlockLayoutRow>
+						<l:BlockLayoutRow>
+                        <l:BlockLayoutCell>
+						  <l:VerticalLayout>
+						  
+	<l:ResponsiveSplitter defaultPane="defaultPane">
+							<l:PaneContainer orientation="Horizontal">
+								<l:SplitPane id="defaultPane">
+									<l:layoutData>
+										<l:SplitterLayoutData id="defaultLayout" size="100%" resizable="false"/>
+									</l:layoutData>
+	
+									<Table
+										id="peopleList"
+										growing="true"
+										growingThreshold="15"
+										items="{
+											path: '/producttransfer',
+											expand:'tostoremaster' }"
+										
+										selectionChange=".onSelectionChange">
+										<headerToolbar>
+											<OverflowToolbar>
+											<Title text="Transfer Details" level="H2" titleStyle="H3" />
+											<!-- <Label text="Transfer Details" width="50%"/> -->
+												<content>
+													<ToolbarSpacer/>
+													<SearchField
+														id="searchField"
+														width="30%"
+														placeholder="Search"
+														liveChange=".onSearch"/>
+													<Button icon="sap-icon://excel-attachment" type="Transparent" press="onExport" text="Transfer Report"/>
+												</content>
+											</OverflowToolbar>
+										</headerToolbar>
+										<columns>
+											<Column id="transferid">
+												<Text text="Transfer ID"/>
+											</Column>
+                                            <Column id="itemno">
+												<Text text="Item Number"/>
+											</Column>
+											<Column id="prodname">
+												<Text text="Product Name"/>
+											</Column>
+											<Column id="stocks">
+												<Text text="Stocks"/>
+											</Column>
+											<Column id="store">
+												<Text text="Store Name"/>
+											</Column>
+											<Column id="status" width="4.5rem">
+												<Text text=""/>
+											</Column>
+										</columns>
+										<items>
+											<ColumnListItem 
+												type="Active"
+				vAlign="Middle"
+					press="onPress">
+												<cells>
+													<Text
+														text="{transfer_id}"
+														/>
+												</cells>
+                                                <cells>
+												<Text
+														text="{item_no}"/>
+												</cells>
+												<cells>
+												<Text
+														text="{prod_name}"/>
+												</cells>
+												<cells>
+														<Text
+														text="{stocks}"/>
+												</cells>
+												<cells>
+														<Text
+														text="{tostoremaster/store_name}"/>
+												</cells>
+												<cells>
+												<ObjectStatus xmlns="sap.m"
+					 icon="sap-icon://navigation-right-arrow" 
+					 state="Information" />
+                    
+												</cells>
+											</ColumnListItem>
+										</items>
+									</Table>
+								</l:SplitPane>
+								<l:SplitPane>
+									<!--Details-->
+									<!--remove busy-->
+									<semantic:SemanticPage
+										id="detailArea"
+										visible="true">
+										<semantic:titleHeading>
+											<Title
+												text="{tostoremaster/store_name}"
+												level="H2"/>
+										</semantic:titleHeading>
+										<semantic:headerContent>
+												<FlexBox>
+													<VBox>
+														<ObjectAttribute text="Store ID: {store_id}"/>
+														<ObjectAttribute text="User Name: {username}"/>
+													</VBox>
+												</FlexBox>
+										</semantic:headerContent>
+										<semantic:content>
+											<HBox>
+												<FlexBox wrap="Wrap">
+													<f:Form	editable="false">
+														<f:title>
+															<core:Title text="Product Details" />
+														</f:title>
+														<f:layout>
+															<f:ResponsiveGridLayout
+																labelSpanXL="3"
+																labelSpanL="3"
+																labelSpanM="3"
+																labelSpanS="12"
+																adjustLabelSpan="false"
+																emptySpanXL="4"
+																emptySpanL="4"
+																emptySpanM="4"
+																emptySpanS="0"
+																columnsXL="1"
+																columnsL="1"
+																columnsM="1"
+																singleContainerFullSize="false" />
+														</f:layout>
+														<f:formContainers>
+															<f:FormContainer>
+																<f:formElements>
+                                                                    <f:FormElement label="Item Number">
+																		<f:fields>
+																			<Text text="{item_no}" />
+																		</f:fields>
+																	</f:FormElement>
+																	<f:FormElement label="Product ID">
+																		<f:fields>
+																			<Text text="{prod_id}" />
+																		</f:fields>
+																	</f:FormElement>
+																	<f:FormElement label="Product Name">
+																		<f:fields>
+																			<Text text="{prod_name}" />
+																		</f:fields>
+																	</f:FormElement>
+																	<f:FormElement label="Product Category">
+																		<f:fields>
+																			<Text text="{prod_cat}" />
+																		</f:fields>
+																	</f:FormElement>
+																	<f:FormElement label="Product Type">
+																		<f:fields>
+																			<Text text="{prod_type}" />
+																		</f:fields>
+																	</f:FormElement>
+                                                                    <f:FormElement label="Stocks">
+																		<f:fields>
+																			<Text text="{stocks}" />
+																		</f:fields>
+																	</f:FormElement>
+																</f:formElements>
+															</f:FormContainer>
+														</f:formContainers>
+													</f:Form>
+													
+												
+												</FlexBox>
+							
+											</HBox>
+										</semantic:content>
+										
+									</semantic:SemanticPage>
+								</l:SplitPane>
+							</l:PaneContainer>
+						</l:ResponsiveSplitter>
+						 </l:VerticalLayout>
+                        </l:BlockLayoutCell>
+
+                     </l:BlockLayoutRow>
+				
+                  </l:BlockLayout>
+   	</l:VerticalLayout>
+	   </ScrollContainer>
+	      </App>
+</mvc:View>

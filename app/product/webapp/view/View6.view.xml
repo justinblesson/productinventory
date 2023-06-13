@@ -1,0 +1,68 @@
+<mvc:View
+    controllerName="product.product.controller.View6"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:fiori="sap.ui.webc.fiori"
+    displayBlock="true"
+    xmlns:layout="sap.ui.layout"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:c="sap.suite.ui.commons"
+    xmlns="sap.m"
+    xmlns:viz.data="sap.viz.ui5.data"
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+    xmlns:viz="sap.viz.ui5.controls"
+    height="100%">
+    <Page id="page" showNavButton="true" navButtonPress=".onNavBack">
+    <FlexBox id="_IDGenFlexBox1" height="80px" alignItems="Center" justifyContent="Center">
+		<Image id="_IDGenImage1" src="Wipro.png" width="60px" height="60px" />
+		<Title id="_IDGenTitle1" text="{i18n>title}" />
+	</FlexBox> 
+    <layout:FixFlex id='chartFixFlex' minFlexSize="250">
+         <layout:flexContent>
+                  <c:ChartContainer
+                    class="sapUiResponsiveContentPadding"
+                    id="chartContainer"
+                    showFullScreen="true"
+                    showPersonalization="false"
+                    autoAdjustHeight="true"
+                    personalizationPress="attachPersonalizationPress"
+                    contentChange="attachContentChange"
+                    width="100%"
+                    showZoom="true"
+                    title="Analytics Dashboard"
+                >
+                    <c:content>
+                        <c:ChartContainerContent id="_IDGenChartContainerContent1" icon="sap-icon://line-chart" title="Line Chart">
+                            <c:content>
+            <viz:Popover id="idPopOver" />
+            <viz:VizFrame xmlns="sap.viz" id="idDonutChart" 
+                          vizType="line" 
+                          width="100%" 
+                          height="100%" 
+                          selectData="OnClickHandler"
+                          vizProperties="{plotArea: { drawingEffect: 'glossy' },
+                                          title:{ text:'Bar Chart for Selected Category in Pie Chart'}}">
+                <viz:dataset>
+                    <viz.data:FlattenedDataset id="_IDGenFlattenedDataset1" data="{product>/product}">
+                        <viz.data:dimensions>
+                            <viz.data:DimensionDefinition id="_IDGenDimensionDefinition1" name="Date" value="{product>added_on}" dataType="date" />
+                        </viz.data:dimensions>
+                        <viz.data:measures>
+                            <viz.data:MeasureDefinition id="_IDGenMeasureDefinition1" name="Quantity" value="{product>qty}" />
+                        </viz.data:measures>
+                    </viz.data:FlattenedDataset>
+                </viz:dataset>
+                <viz:feeds>
+                    <viz.feeds:FeedItem id="_IDGenFeedItem1" uid="valueAxis" type="Measure" values="Quantity" />
+                    <viz.feeds:FeedItem id="_IDGenFeedItem2" uid="categoryAxis" type="Dimension" values="Date" />
+                </viz:feeds>
+            </viz:VizFrame>
+                   </c:content>
+                        </c:ChartContainerContent>
+                    </c:content>
+                </c:ChartContainer>
+     </layout:flexContent>
+    </layout:FixFlex>	
+        <content />
+    </Page>
+</mvc:View>

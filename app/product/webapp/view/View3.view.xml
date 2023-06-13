@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" xmlns:fiori="sap.ui.webc.fiori"
+   xmlns:l="sap.ui.layout" controllerName="product.product.controller.View3" displayBlock="true">
+   <App backgroundImage="cool-background1.png" backgroundOpacity="1">
+   <ScrollContainer
+		height="100%"
+		width="100%"
+		vertical="true"
+		focusable="true">
+             	<l:VerticalLayout id="containerLayout" width="100%">       
+                  <l:BlockLayout id="BlockLayout" background="Default">
+
+<!-- Image Block -->
+                     <l:BlockLayoutRow>
+                        <l:BlockLayoutCell class="sapUiNoContentPadding" width="80%">
+                           <!-- <Image src="Wipro.png" width="200px" height="150px" class="sapUiLargeMarginBeginTopBottom" />
+                           <Title id="productTiled" text="Inventory Management Solution" level="H1" titleStyle="H1" class="sapUiLargeMarginTopBottom" /> -->
+						   <Image src="Wipro.png" width="120px" height="90px" class="sapUiLargeMarginBeginTopBottom" />
+                           <Title id="productTiled" text="Inventory Management Solution" level="H1" titleStyle="H3" class="sapUiMediumMarginBottom" />
+                        </l:BlockLayoutCell>
+						<l:BlockLayoutCell class="sapUiNoContentPadding" width="20%">
+                          	<HBox justifyContent="End" backgroundDesign="Transparent" >
+			        <Avatar
+							initials="{userdetails>/0/initial}"
+							displaySize="L"
+							class="sapUiTinyMargin"
+							backgroundColor="Placeholder"
+							press=".handleButtonPress"/>	 
+							  </HBox>
+                            
+                            </l:BlockLayoutCell>
+                     </l:BlockLayoutRow>
+
+<!-- Developer Block -->
+                    <l:BlockLayoutRow>
+       
+                            <l:BlockLayoutCell >
+                          	<HBox justifyContent="End" backgroundDesign="Transparent"  height="133%">
+         	 <Button id="home" text="Home" press="onHome" type="Emphasized" class="sapUiTinyMargin"  icon="sap-icon://home" />	
+			 <Button id="viewproduct" text="View Product Master" press="onOpenAddDialog" type="Emphasized" class="sapUiTinyMargin"  />	
+          <Button id="addproductinv" text="Add Product Inventory" type="Emphasized"  class="sapUiTinyMargin" press="onCreate2" icon="sap-icon://add-product"/>	 
+							  </HBox>
+                            <Dialog id="productmaster" draggable="true" >
+								 <fiori:Bar id="bartable1">
+		   <fiori:startContent>
+		   <Title text="Product Master" level="H2" titleStyle="H3" class="sapUiLargeMarginEnd" />
+	
+		     </fiori:startContent>
+			 <fiori:endContent>
+			 	    <SearchField
+				id="searchField"
+				width="70%"
+				placeholder="Search"
+				liveChange=".onSearch"/>
+			 <Button id="refresh" icon="sap-icon://refresh" type="Transparent" class="sapUiTinyMargin" press="onRefresh"/>		 
+			 </fiori:endContent>
+        </fiori:Bar>
+                            <buttons>
+                                        <Button id="cancelCreateUserInfo" text="Cancel" press="onCancelDialog" type="Transparent" />
+                                    </buttons>
+                                     <Table
+							id="productinvent"
+							growing="true"
+							growingThreshold="10"
+							items="{
+								path: '/productmaster'
+							}">						
+							<columns>
+								<Column id="ProductID">
+									<Text id="ProductIDText" text="ProductID"/>
+								</Column>
+								<Column id="ProductCat">
+									<Text id="ProductCatText" text="Product Category"/>
+								</Column>
+								<Column id="ProductType">
+									<Text id="ProductTypeText" text="Product Type"/>
+								</Column>
+								<Column id="ProductName">
+                           <Text id="ProductNameText" text="Product Name"/>
+                        </Column>
+								<Column id="UOM">
+									<Text id="UOMText" text="Unit of Measure"/>
+								</Column>
+								<!-- <Column id="Active">
+									<Text id="ActiveText" text="Active"/>
+								</Column> -->
+							</columns>
+							<items>
+								<ColumnListItem id="ColumnlistitemID">
+									<cells>
+										<Text id="productidin"  text="{prod_id}"/>
+									</cells>
+									<cells>
+										<Text id="productcatin" text="{prod_cat}"/>
+									</cells>
+									<cells>
+										<Text id="producttype"  text="{prod_type}"/>
+									</cells>
+									<cells>
+										<Text id="productname"  text="{prod_name}"/>
+									</cells>
+									<cells>
+										<Text id="uom"  text="{uom}"/>
+									</cells>
+									<!-- <cells>
+										<Text id="active"  text="{active}"/>
+									</cells> -->
+								</ColumnListItem>
+							</items>
+						</Table>
+                           </Dialog>
+                            </l:BlockLayoutCell>
+                            </l:BlockLayoutRow>
+                          
+                     <l:BlockLayoutRow>
+                        <l:BlockLayoutCell width="43%">
+                         <l:VerticalLayout>
+                              <core:Icon id="supplierIcon" src="sap-icon://product"  size="2.5rem" color="Default" />
+                              <Title text="Add Product Master Details" level="H3" titleStyle="H2" class="sapUiTinyMarginTopBottom" />
+                           </l:VerticalLayout>
+                          
+                        </l:BlockLayoutCell>
+
+<!-- Reports Block -->
+
+                        <l:BlockLayoutCell  width="75%">
+                           <l:VerticalLayout>
+                                           			
+                              <form:SimpleForm editable="true" layout="ResponsiveGridLayout" width="150%" backgroundDesign="Solid">
+                                        <form:content>
+                                           <Label id="idproductid" text="Product ID" required="true" />
+                        <Input id="idproductidin" />
+						<Label id="idproducttype"   text="Product Type" required="true" />
+                        <Input id="idproducttypein" />
+                        <Label id="idproductcat"   text="Product Category" required="true" />
+                        <Input id="idproductcatin" />                      
+                        <Label id="idproductname" text="Product Name" required="true" />
+                        <Input id="idproductnamein" />
+                        <Label id="iduom" text="Unit of Measure" required="true" />
+                        <Input id="iduomin" />
+                        <!-- <Label id="idactive" text="Active" required="true" />
+                        <Input id="idactivein"/> -->
+                                        </form:content>
+                                    </form:SimpleForm>
+                    <HBox id="hboxbutton" justifyContent="Center" width="150%">
+                       <Button id="save" text="Submit" width="80%" type="Emphasized" press="onCreate" class="sapUiMediumMargin"  />
+                    </HBox>
+                          </l:VerticalLayout>
+                        </l:BlockLayoutCell>
+
+                     </l:BlockLayoutRow>
+                  </l:BlockLayout>
+   	</l:VerticalLayout>
+	   </ScrollContainer>
+	      </App>
+</mvc:View>

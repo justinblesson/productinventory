@@ -1,0 +1,16 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog
+		id="selectDialog"
+		title="Stores"
+		items="{/storemaster}"
+		search=".onValueHelpDialogSearch"
+		confirm=".onValueHelpDialogClose"
+		cancel=".onValueHelpDialogClose"
+        >
+		<StandardListItem
+			title="{store_name}"
+			description="{store_id}"
+            info="{store_name}" 
+            infoState="Success"/>
+	</SelectDialog>
+</core:FragmentDefinition>

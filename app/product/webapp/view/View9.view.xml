@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" xmlns:fiori="sap.ui.webc.fiori"
+ 	xmlns:t="sap.ui.table"
+   xmlns:l="sap.ui.layout" controllerName="product.product.controller.View9" displayBlock="true">
+   <App backgroundImage="cool-background1.png" backgroundOpacity="1">
+   <ScrollContainer
+		height="100%"
+		width="100%"
+		vertical="true"
+		focusable="true">
+             	<l:VerticalLayout id="containerLayout" width="100%">       
+                  <l:BlockLayout id="BlockLayout" background="Default">
+
+<!-- Image Block -->
+                     <l:BlockLayoutRow>
+                        <l:BlockLayoutCell class="sapUiNoContentPadding" width="80%">
+                           <!-- <Image src="Wipro.png" width="200px" height="150px" class="sapUiLargeMarginBeginTopBottom" />
+                           <Title id="productTiled" text="Inventory Management Solution" level="H1" titleStyle="H1" class="sapUiLargeMarginTopBottom" /> -->
+						   <Image src="Wipro.png" width="120px" height="90px" class="sapUiLargeMarginBeginTopBottom" />
+                           <Title id="productTiled" text="Inventory Management Solution" level="H1" titleStyle="H3" class="sapUiMediumMarginBottom" />
+                        </l:BlockLayoutCell>
+						<l:BlockLayoutCell class="sapUiNoContentPadding" width="20%">
+                          	<HBox justifyContent="End" backgroundDesign="Transparent" >
+			        <Avatar
+							initials="{userdetails>/0/initial}"
+							displaySize="L"
+							class="sapUiTinyMargin"
+							backgroundColor="Placeholder"
+							press=".handleButtonPress"/>	 
+							  </HBox>
+                            
+                            </l:BlockLayoutCell>
+                     </l:BlockLayoutRow>
+
+<!-- Developer Block -->
+                    <l:BlockLayoutRow>
+       
+            <l:BlockLayoutCell >
+            <HBox justifyContent="End" backgroundDesign="Transparent" height="133%">	
+             <Button id="home" text="Home" press="onHome" type="Emphasized" class="sapUiTinyMargin" icon="sap-icon://home" />
+             <Button id="dispatchid" text="Dispatch" press="onDispatch" type="Emphasized" class="sapUiTinyMargin" icon="sap-icon://credit-card">
+			</Button>	
+			</HBox>			 
+                            </l:BlockLayoutCell >
+                            </l:BlockLayoutRow>
+
+						<l:BlockLayoutRow>
+                        <l:BlockLayoutCell >
+						  <l:VerticalLayout>
+						 <fiori:Bar id="bartable1">
+			  <fiori:startContent>
+			   <Title text="Dispatch Products to Store" level="H2" titleStyle="H3" class="sapUiTinyMarginTopBottom" />
+			   </fiori:startContent>
+			 <fiori:endContent>
+			 	    <SearchField
+				id="searchField"
+				width="70%"
+				placeholder="Search"
+				liveChange=".onSearch"/>
+			  <Button id="delete" icon="sap-icon://delete" type="Transparent" class="sapUiTinyMargin" press="onDelete"/>
+			 <Button id="refresh" icon="sap-icon://refresh" type="Transparent" class="sapUiTinyMargin" press="onRefresh"/>
+			 
+			 </fiori:endContent>
+        </fiori:Bar>
+                      
+                        <t:Table id="table1"
+				rows="{checkout>/checkout}"
+				selectionMode="Single"
+				alternateRowColors="true"
+				visibleRowCountMode="Auto"
+				minAutoRowCount="10"
+                 >
+				 <t:rowSettingsTemplate>
+					<t:RowSettings highlight="{checkout>status}" highlightText="{check>status_text}"/>
+				</t:rowSettingsTemplate>
+				<t:columns>
+					<t:Column >
+						<Label text="Product ID" />
+						<t:template>
+							<Text text="{checkout>prod_id}" />
+						</t:template>
+					</t:Column>
+                    <t:Column >
+						<Label text="Product Category" />
+						<t:template>
+							<Text text="{checkout>prod_cat}" />
+						</t:template>
+					</t:Column>
+                    <t:Column >
+						<Label text="Product Type" />
+						<t:template>
+							<Text text="{checkout>prod_type}" />
+						</t:template>
+					</t:Column>
+					<t:Column >
+						<Label text="Product Name" />
+						<t:template>
+							<Text text="{checkout>prod_name}"/>
+						</t:template>
+					</t:Column>
+					<t:Column >
+						<Label text="Stocks" />
+						<t:template>
+							<Input value="{checkout>stocks}" />
+						</t:template>
+					</t:Column>
+				<t:Column >
+						<Label text="Unit" />
+						<t:template>
+							<Text text="{checkout>unit}" />
+						</t:template>
+					</t:Column>
+				</t:columns>
+			</t:Table>
+			 <Dialog id="StoreInfo" draggable="true" title="Dispatch Products">
+                                    <buttons>
+                                        <Button id="dispatch" text="Dispatch" press="onDispatch1"    type="Emphasized" />
+                                        <Button id="cancel"   text="Cancel"   press="onCancelDialog" type="Transparent" />
+                                    </buttons>
+                                    <form:SimpleForm editable="true" layout="ResponsiveGridLayout">
+                                        <form:content>
+                                            <Label id="storeid"   text="Store ID" required="true" />
+                                            <!-- <Input id="storeidinput" /> -->
+		<Input
+			id="storeidinput"
+			textFormatMode="KeyValue"
+			showSuggestion="true"
+			showValueHelp="true"
+			placeholder="Enter store name"
+			valueHelpRequest=".onValueHelpRequest"
+			suggestionItems="{/storemaster}"
+			suggestionItemSelected=".onSuggestionItemSelected">
+				<core:ListItem
+					key="{store_id}"
+					text="{store_name}"/>
+		</Input>
+                                        </form:content>
+                                    </form:SimpleForm>
+                                </Dialog>
+
+						 </l:VerticalLayout>
+                        </l:BlockLayoutCell>
+
+                     </l:BlockLayoutRow>
+					 <l:BlockLayoutRow>
+					  <l:BlockLayoutCell class="sapUiNoContentPadding" >
+			 
+                            </l:BlockLayoutCell >
+                            </l:BlockLayoutRow>
+                  </l:BlockLayout>
+   	</l:VerticalLayout>
+	   </ScrollContainer>
+	      </App>
+</mvc:View>

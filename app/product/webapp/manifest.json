@@ -1,0 +1,262 @@
+{
+  "_version": "1.49.0",
+  "sap.app": {
+    "id": "product.product",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.8.5",
+      "toolsId": "7a43df2f-48f1-45f5-b44c-533a13e6e7c6"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/productinventory/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.109.3",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.f": {},
+        "sap.suite.ui.generic.template": {},
+        "sap.ui.comp": {},
+        "sap.ui.generic.app": {},
+        "sap.ui.table": {},
+        "sap.ushell": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "product.product.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "synchronizationMode": "None",
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "async": true,
+        "viewPath": "product.product.view",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "clearControlAggregation": false
+      },
+      "routes": [
+        {
+          "name": "RouteView1",
+          "pattern": ":?query:",
+          "target": [
+            "TargetView1"
+          ]
+        },
+        {
+          "name": "View2",
+          "pattern": "View2/username/{username}",
+          "target": [
+            "TargetView2"
+          ]
+        },
+        {
+        "name": "View3",
+        "pattern": "View3/username/{username}",
+        "target": [
+          "TargetView3"
+        ]
+      },
+      {
+      "name": "View4",
+      "pattern": "View4/username/{username}",
+      "target": [
+        "TargetView4"
+      ]
+    },
+    {
+    "name": "View5",
+    "pattern": "View5/category/{category}",
+    "target": [
+      "TargetView5"
+    ]
+  },
+  {
+  "name": "View6",
+  "pattern": "View6/name/{name}/category/{category}",
+  "target": [
+    "TargetView6"
+  ]
+},
+{
+"name": "View7",
+"pattern": "View7/username/{username}",
+"target": [
+  "TargetView7"
+]
+},
+{
+"name": "View8",
+"pattern": "View8/username/{username}",
+"target": [
+  "TargetView8"
+]
+},
+{
+"name": "View9",
+"pattern": "View9/username/{username}",
+"target": [
+  "TargetView9"
+]
+},
+{
+"name": "View10",
+"pattern": "View10/username/{username}",
+"target": [
+  "TargetView10"
+]
+}
+      ],
+      "targets": {
+        "TargetView1": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "View1",
+          "viewName": "View1"
+        },
+        "TargetView2": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "View2",
+          "viewName": "View2",
+          "viewLevel": 1
+        }
+        ,
+        "TargetView3": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "View3",
+          "viewName": "View3",
+          "viewLevel": 1
+        },
+        "TargetView4": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "View4",
+          "viewName": "View4",
+          "viewLevel": 1
+        },
+        "TargetView5": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "View5",
+          "viewName": "View5",
+          "viewLevel": 1
+        },
+        "TargetView6": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "View6",
+          "viewName": "View6",
+          "viewLevel": 1
+        },
+        "TargetView7": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "View7",
+          "viewName": "View7",
+          "viewLevel": 1
+        },
+        "TargetView8": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "View8",
+          "viewName": "View8",
+          "viewLevel": 1
+        },
+        "TargetView9": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "View9",
+          "viewName": "View9",
+          "viewLevel": 1
+        },
+        "TargetView10": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "View10",
+          "viewName": "View10",
+          "viewLevel": 1
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "product.product.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "App"
+    }
+  }
+}

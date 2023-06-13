@@ -1,0 +1,54 @@
+_schema-version: '3.1'
+ID: productinventory
+version: 1.0.0
+description: "A simple CAP project."
+parameters:
+  enable-parallel-deployments: true
+build-parameters:
+  before-all:
+    - builder: custom
+      commands:
+        - npx -p @sap/cds-dk cds build --production
+modules:
+  - name: productinventory-srv
+    type: nodejs
+    path: srv
+    parameters:
+      buildpack: nodejs_buildpack
+    build-parameters:
+      builder: npm-ci
+    provides:
+      - name: srv-api # required by consumers of CAP services (e.g. approuter)
+        properties:
+          srv-url: ${default-url}
+    requires:
+      - name: productinventory-db
+
+  - name: productinventory-db-deployer
+    type: hdb
+    path: db
+    parameters:
+      buildpack: nodejs_buildpack
+    requires:
+      - name: productinventory-db
+  - name: productinventory-srv
+    type: nodejs
+    path: gen/srv
+    requires:
+      - name: productinventory-auth
+
+resources:
+  - name: productinventory-db
+    type: com.sap.xs.hdi-container
+    parameters:
+      service: hana
+      service-plan: hdi-shared
+  - name: productinventory-auth
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: xsuaa
+      service-plan: application
+      path: ./xs-security.json
+      config:
+        xsappname: productinventory-${org}-${space}
+        tenant-mode: dedicated

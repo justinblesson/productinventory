@@ -1,0 +1,16 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog
+		id="selectDialog"
+		title="Products"
+		items="{/productmaster}"
+		search=".onValueHelpDialogSearch"
+		confirm=".onValueHelpDialogClose"
+		cancel=".onValueHelpDialogClose"
+        >
+		<StandardListItem
+			title="{prod_name}"
+			description="{prod_id}"
+            info="{prod_cat}({prod_type})" 
+            infoState="Success"/>
+	</SelectDialog>
+</core:FragmentDefinition>

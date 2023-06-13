@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form"
+   xmlns:l="sap.ui.layout" controllerName="product.product.controller.View1" displayBlock="true">
+   <App backgroundImage="cool-background1.png" backgroundOpacity="1">
+   
+             	<l:VerticalLayout id="containerLayout" width="100%">       
+                  <l:BlockLayout id="BlockLayout" background="Default">
+
+<!-- Image Block -->
+
+                     <l:BlockLayoutRow>
+                        <l:BlockLayoutCell class="sapUiNoContentPadding"   >
+                           <!-- <Image src="Wipro.png" width="200px" height="150px" class="sapUiLargeMarginBeginTopBottom" /> -->
+                           <Image src="Wipro.png" width="120px" height="90px" class="sapUiLargeMarginBeginTopBottom" />
+                           <Title id="productTiled" text="Inventory Management Solution" level="H1" titleStyle="H3" class="sapUiMediumMarginBottom" />
+                        </l:BlockLayoutCell>
+                     </l:BlockLayoutRow>
+
+<!-- Developer Block -->
+                    <l:BlockLayoutRow>
+                        <l:BlockLayoutCell class="sapUiNoContentPadding"   >
+                          <HBox justifyContent="End" backgroundDesign="Transparent" height="200%" class="sapUiLargeMargin">	
+                          </HBox>
+                        </l:BlockLayoutCell>
+                     </l:BlockLayoutRow>
+
+                     <l:BlockLayoutRow>
+                        <l:BlockLayoutCell backgroundColorSet="ColorSet11" backgroundColorShade="ShadeB" >
+                         <l:VerticalLayout>
+                              <core:Icon id="supplierIcon" src="sap-icon://inventory" size="2.5rem" color="Default" />
+                              <Title text="Retail Inventory Solution" level="H3" titleStyle="H2" class="sapUiTinyMarginTopBottom" />
+                              <Text text="This tool is used to add new products,manage stocks and review analytics" class="sapUiTinyMarginBottom" />
+                           </l:VerticalLayout>
+                          
+                        </l:BlockLayoutCell>
+
+<!-- Reports Block -->
+
+                        <l:BlockLayoutCell backgroundColorSet="ColorSet11" backgroundColorShade="ShadeD">
+                           <l:VerticalLayout>
+                              <HBox>
+                              <core:Icon src="sap-icon://role" size="2.5rem" color="Default" class="sapUiTinyMargin"/>
+                              <Title id="administrationTile" text="User Login" level="H3" titleStyle="H2" class="sapUiTinyMargin" />
+                              </HBox>
+                              <form:SimpleForm editable="true" layout="ResponsiveGridLayout" width="150%">
+                                        <form:content>
+                                             <Label id="usernamelabel" text="User Name" required="true" />
+                                             <Input id="usernameinput" />
+                                             <Label id="passwordlabel" text="Password" required="true" />
+                                            <Input id="passwordinput"  type="Password" />
+                                        </form:content>
+                                    </form:SimpleForm>
+                    <HBox id="hboxbutton" justifyContent="Center" backgroundDesign="Solid" width="150%" class="sapUiTinyMarginTop tileLayout">
+                       <Button id="registerbutton" text="Register" type="Transparent" press="onOpenAddDialog"  class="sapUiTinyMargin" />
+                        <Button id="forgot" text="Forgot Password ?" type="Transparent" press="onForgot" class="sapUiTinyMargin" />
+                    </HBox>
+                    <HBox id="hboxbuttons" justifyContent="Center" backgroundDesign="Solid" width="150%">
+                    <Button id="loginbutton" text="Login"    type="Emphasized" press="onLoginUser" class="sapUiTinyMargin" />
+                    </HBox>
+                       <Dialog id="UserInfo" draggable="true" title="New User Registration">
+                                    <buttons>
+                                        <Button id="confirmCreateUserInfo" text="Register" press="onCreate" type="Emphasized" />
+                                        <Button id="cancelCreateUserInfo" text="Cancel" press="onCancelDialog" type="Transparent" />
+                                    </buttons>
+                                    <form:SimpleForm editable="true" layout="ResponsiveGridLayout">
+                                        <form:content>
+                                             <Label id="rusernamelabel" text="User Name" required="true" />
+                                             <Input id="rusernameinput" />
+                                             <Label id="remaillabel" text="Email" required="true" />
+                                            <Input id="remailinput"  />
+                                             <Label id="rpasswordlabel" text="Password" required="true" />
+                                            <Input id="rpasswordinput"  type="Password" />
+                                             <Label id="rpasswordlabelcon" text="Confirm Password" required="true" />
+                                            <Input id="rpasswordinputcon"  type="Password" />
+                                        </form:content>
+                                    </form:SimpleForm>
+                                </Dialog>
+                                   <Dialog id="ForgotPassword" draggable="true" title="Forgot Password">
+                                    <buttons>
+                                        <Button id="confirmCreateUserInfo1" text="Save" press="onCreate1" type="Emphasized" />
+                                        <Button id="cancelCreateUserInfo1"  text="Cancel" press="onCancelDialog" type="Transparent" />
+                                    </buttons>
+                                    <form:SimpleForm editable="true" layout="ResponsiveGridLayout">
+                                        <form:content>
+                                             <Label id="fusernamelabel" text="User Name" required="true" />
+                                             <Input id="fusernameinput" />
+                                             <Label id="femaillabel" text="Email" required="true" />
+                                             <Input id="femailinput"  />
+                                             <Label id="fpasswordlabel" text="Enter New Password" required="true" />
+                                            <Input id="fpasswordinput"  type="Password" />
+                                             <Label id="fpasswordlabelcon" text="Confirm New Password" required="true" />
+                                            <Input id="fpasswordinputcon"  type="Password" />
+                                        </form:content>
+                                    </form:SimpleForm>
+                                </Dialog>
+                          </l:VerticalLayout>
+                        </l:BlockLayoutCell>
+
+                     </l:BlockLayoutRow>
+                  </l:BlockLayout>
+   	</l:VerticalLayout>
+
+    </App>
+</mvc:View>
