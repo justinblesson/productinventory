@@ -1,3 +1,5 @@
-username;email;password
-John;john@gmail.com;123
-Blesson;justinblesson@gmail.com;12345
+CREATEDAT,CREATEDBY,MODIFIEDAT,MODIFIEDBY,USERNAME,EMAIL,PASSWORD
+"2023-05-16 14:52:54.617000000","anonymous","2023-05-16 14:57:45.160000000","anonymous","Andrew","andrew@gmail.com","12345"
+,,,,"Blesson","justinblesson@gmail.com","12345"
+,,"2023-05-16 14:56:59.292000000","anonymous","John","john@gmail.com","12345"
+"2023-06-20 14:57:00.059000000","anonymous","2023-06-20 14:57:42.873000000","anonymous","Neha","neha@gmail.com","8907"

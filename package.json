@@ -10,7 +10,7 @@
     "@sap/xssec": "^3",
     "express": "^4",
     "hdb": "^0.19.0",
-    "passport": "^0.6.0"
+    "passport": "^0"
   },
   "devDependencies": {
     "@sap/eslint-plugin-ui5-jsdocs": "^2.0.5",
@@ -74,7 +74,8 @@
       },
       "[hybrid]": {
         "auth": "xsuaa"
-      }
+      },
+      "auth": "xsuaa"
     }
   }
 }

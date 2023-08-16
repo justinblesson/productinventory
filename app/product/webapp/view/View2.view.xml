@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" xmlns:fiori="sap.ui.webc.fiori"
-   xmlns:l="sap.ui.layout" controllerName="product.product.controller.View2" displayBlock="true">
+   xmlns:l="sap.ui.layout" xmlns:v="sap.ui.comp.variants" xmlns:vm="sap.ui.fl.variants" controllerName="product.product.controller.View2" xmlns:sap.ui.fl="sap.ui.fl"
+    xmlns:sap.ui.dt="sap.ui.dt" displayBlock="true">
       <App backgroundImage="cool-background1.png" backgroundOpacity="1">
    <ScrollContainer
 		height="100%"
@@ -58,8 +59,7 @@
 			</HBox>			 
 						 <fiori:Bar id="bartable1">
 		   <fiori:startContent>
-		   <Title text="Retail Inventory Details" level="H2" titleStyle="H3" class="sapUiLargeMarginEnd" />
-	
+		   <Title text="Retail Inventory Details" level="H2" titleStyle="H3" class="sapUiMediumMarginEnd" />
 		     </fiori:startContent>
 			 <fiori:endContent>
 			 	    <SearchField
@@ -68,8 +68,14 @@
 				placeholder="Search"
 				liveChange=".onSearch"/>
 			 <Button id="refresh" icon="sap-icon://refresh" type="Transparent" class="sapUiTinyMargin" press="onRefresh"/>
-			 <Button icon="sap-icon://action-settings" press="onPersoButtonPressed"/>
-			 
+			 <!-- <v:VariantManagement variantItems="{/VariantList}" select="onSelect" save="onSaveAs" enabled="true" manage="onManage" showExecuteOnSelection="false" showShare="false" id="Variants">
+			<v:variantItems>
+				<v:VariantItem text="{Name}" key="{Key}"/>
+			</v:variantItems>
+		</v:VariantManagement> -->
+		     <vm:VariantManagement id="variants" for="productinvent" headerLevel="H5" />
+			 <Button id="perso" icon="sap-icon://action-settings" type="Transparent" press="openPersoDialog"/>
+			 <!-- <Button id="perso1" icon="sap-icon://action-settings" press="openPersoDialog1"/> -->
 			 </fiori:endContent>
         </fiori:Bar>
                           <Table
@@ -77,52 +83,60 @@
 							growing="true"
 							growingThreshold="10"
 							alternateRowColors="true"
+							sap.ui.fl:flexibility="sap/m/flexibility/EngineFlex"
 							items="{
-								path: '/productinvent',
-								expand:'toproductmaster',
-								filter:'prod_type',
-								sorter: [
-                               {
-       							 path: 'stocks', 
- 						         descending: 'true', 
-        						 group: 'true'
-						      }
- 							   ]
-							}">						
+								path: '/productinvent'
+								
+							
+							}" >
+						  <!-- <headerToolbar>
+                <Toolbar>
+                    <content>
+                    <Title id="title" text="Persons"/>
+                    <ToolbarSeparator/>
+                    <vm:VariantManagement id="variants" for="productinvent"/>
+                    <ToolbarSpacer/>
+                     <Button id="perso" icon="sap-icon://action-settings" press="openPersoDialog"/>
+                    </content>
+                </Toolbar>
+            </headerToolbar> -->
+			
 							<columns>
-								<Column id="ProductID">
+								<Column id="prod_id">
 									<Text id="ProductIDText" text="ProductID"/>
 								</Column>
-								<Column id="ProductType">
+								<Column id="prod_type">
 									<Text id="ProductTypeText" text="Product Type"/>
 								</Column>
-								<Column id="ProductCat">
+								<Column id="prod_cat">
 									<Text id="ProductCatText" text="Product Category"/>
 								</Column>								
-								<Column id="ProductName">
+								<Column id="prod_name">
                                     <Text id="ProductNameText" text="Product Name"/>
                                 </Column>
-								<Column id="ExpiryDate">
+								<Column id="expiry_date">
 									<Text id="ExpiryDateText" text="Expiry Date"/>
 								</Column>
-								<Column id="Quantity">
+								<Column id="qty">
 									<Text id="QuantityText" text="Net Quantity"/>
 								</Column>
-								<Column id="UOM">
+								<Column id="uom">
 									<Text id="UOMText" text="Unit of Measure"/>
 								</Column>
-								<Column id="Stocks">
+								<Column id="stocks">
 									<Text id="StocksText" text="Stocks"/>
 								</Column>
-								<Column id="Unit">
+								<Column id="unit">
 									<Text id="UnitText" text="Unit"/>
 								</Column>
 								<!-- <Column id="Active">
 									<Text id="ActiveText" text="Active"/>
 								</Column> -->
-								<Column id="CreatedOn">
+								<!-- <Column id="CreatedOn"> -->
+								<Column id="added_on" >
 									<Text id="CreatedOnText" text="Added On"/>
 								</Column>
+								
 							</columns>
 							<items>
 								<ColumnListItem id="ColumnlistitemID">
@@ -145,13 +159,13 @@
 										<Text id="quantity"  text="{qty}"/>
 									</cells>
 									<cells>
-										<Text id="uom"  text="{uom}"/>
+										<Text id="uom1"  text="{uom}"/>
 									</cells>
 									<cells>
-										<Text id="stocks"  text="{stocks}"/>
+										<Text id="stocks1"  text="{stocks}"/>
 									</cells>
 									<cells>
-										<Text id="unit"  text="{unit}"/>
+										<Text id="unit1"  text="{unit}"/>
 									</cells>
 									<!-- <cells>
 										<Text id="active"  text="{toproductmaster/active}"/>

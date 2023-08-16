@@ -36,6 +36,16 @@ sap.ui.define([
                     }
                     oModelcheck.setData(oData);
                     sap.ui.getCore().setModel(oModelcheck, "checkout");
+                    // sap.ui.getCore().attachInit(function () {
+                    //     sap.ui.require(["sap/ui/fl/FakeLrepConnectorLocalStorage"
+                    //     ], function (FakeLrepConnectorLocalStorage) {
+                    //         FakeLrepConnectorLocalStorage.enableFakeConnector(
+                    //             null,
+                    //             //"tl.ibp.manage.demand.lifecycle", // the ID of your project or namespace
+                    //             //"1.0.0" // can be anything
+                    //         );
+                    //     });
+                    // });
             }
         });
     }

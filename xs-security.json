@@ -18,16 +18,10 @@
       "attribute-references": []
     }
   ],
-  "role-collections": [
-    {
-      "name": "Productinventory_Administrators",
-      "description": "Productinventory Administrators",
-      "role-template-references": ["$XSAPPNAME.Admin"]
-    }
-  ],
+  "role-collections": [],
   "oauth2-configuration": {
     "redirect-uris": [
-      "http://localhost:4004/"
+      "https://port5000-workspaces-ws-cw87z.us10.trial.applicationstudio.cloud.sap"
     ]
   }
 }
