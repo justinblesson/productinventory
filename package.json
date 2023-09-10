@@ -6,16 +6,17 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
-    "@sap/cds": "^6",
+    "@sap/cds": "^6.8.4",
     "@sap/xssec": "^3",
     "express": "^4",
     "hdb": "^0.19.0",
     "passport": "^0"
   },
   "devDependencies": {
-    "@sap/eslint-plugin-ui5-jsdocs": "^2.0.5",
-    "@sap/ux-specification": "^1.102.15",
-    "@sapui5/ts-types": "^1.92.2",
+    "@sap/cds-dk": "^7",
+    "@sap/eslint-plugin-ui5-jsdocs": "^2.0.8",
+    "@sap/ux-specification": "^1.108.11",
+    "@sapui5/ts-types": "^1.117.0",
     "eslint": "^7.32.0",
     "sqlite3": "^5.0.4"
   },
@@ -25,7 +26,7 @@
     "watch-product1": "cds watch --open product1/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "engines": {
-    "node": "^16.15"
+    "node": ">=16.0.0"
   },
   "eslintConfig": {
     "extends": "eslint:recommended",

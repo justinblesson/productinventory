@@ -6,6 +6,19 @@ service productinventory {
         *,
         cast (substring(createdAt,1,10) as Date) as created_on
   };
+//     entity productmaster @(restrict : [
+//             {
+//                 grant : [ 'READ' ],
+//                 to : [ 'ProductViewer' ]
+//             },
+//             {
+//                 grant : [ '*' ],
+//                 to : [ 'ProductManager' ]
+//             }
+//       ])as projection on my.productmaster {
+//         *,
+//         cast (substring(createdAt,1,10) as Date) as created_on
+//   };
     entity productinvent as projection on my.productinvent{
         *,
            createdAt as added_on,

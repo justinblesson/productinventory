@@ -129,7 +129,12 @@ sap.ui.define([
 			});
 
 		},
-
+        onSaveVariant: function(oEvent){
+        var key = oEvent.getParameters().key
+		},
+		onSelectVariant: function(oEvent){
+		var key = oEvent.getParameters().key
+		},
 		openPersoDialog1: function (event) {
 			var that = this;
 			var List = that.byId("List");

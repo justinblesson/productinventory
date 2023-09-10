@@ -73,7 +73,7 @@
 				<v:VariantItem text="{Name}" key="{Key}"/>
 			</v:variantItems>
 		</v:VariantManagement> -->
-		     <vm:VariantManagement id="variants" for="productinvent" headerLevel="H5" />
+		     <vm:VariantManagement id="variants" for="productinvent" headerLevel="H5" save="onSaveVariant" select="onSelectVariant" />
 			 <Button id="perso" icon="sap-icon://action-settings" type="Transparent" press="openPersoDialog"/>
 			 <!-- <Button id="perso1" icon="sap-icon://action-settings" press="openPersoDialog1"/> -->
 			 </fiori:endContent>

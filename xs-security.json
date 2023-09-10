@@ -3,25 +3,32 @@
   "tenant-mode": "dedicated",
   "scopes": [
     {
-      "name": "$XSAPPNAME.Admin",
-      "description": "Administrators"
+      "name": "$XSAPPNAME.ProductManager",
+      "description": "Product Manager"
+    },
+    {
+      "name": "$XSAPPNAME.ProductViewer",
+      "description": "Product Viewer"
     }
   ],
   "attributes": [],
   "role-templates": [
     {
-      "name": "Administrators",
-      "description": "generated",
+      "name": "ProductManager",
+      "description": "Product Manager",
       "scope-references": [
-        "$XSAPPNAME.Admin"
+        "$XSAPPNAME.ProductManager"
+      ],
+      "attribute-references": []
+    },
+    {
+      "name": "ProductViewer",
+      "description": "Product Viewer",
+      "scope-references": [
+        "$XSAPPNAME.ProductViewer"
       ],
       "attribute-references": []
     }
   ],
-  "role-collections": [],
-  "oauth2-configuration": {
-    "redirect-uris": [
-      "https://port5000-workspaces-ws-cw87z.us10.trial.applicationstudio.cloud.sap"
-    ]
-  }
+  "role-collections": []
 }
